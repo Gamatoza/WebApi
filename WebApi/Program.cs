@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.WebHost
     .UseKestrel()
-    .UseUrls("http://*:80")
+    .UseUrls("http://*:5021")
     .UseContentRoot(Directory.GetCurrentDirectory())
     .UseIISIntegration();
 
@@ -50,14 +50,8 @@ using (var scope = app.Services.CreateScope())
     dbContext.Database.Migrate();
 }
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseAuthorization();
 

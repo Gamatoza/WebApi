@@ -10,7 +10,7 @@ services:
       - "order_db"
     container_name: order-service
     ports:
-      - "5021:80"
+      - "5021:5021"
     build: .
     networks:
       - dev
